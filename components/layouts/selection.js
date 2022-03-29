@@ -7,10 +7,10 @@ const StyleDiv = chakra(motion.div, {
 	}
 });
 
-const Selection = ({ children, delay = 0}) => {
+const Section = ({ children, delay = 0}) => {
 	return (
 		<StyleDiv
-			initial={{ y: 0, opacity: 0 }}
+			initial={{ y: 10, opacity: 0 }}
 			animate={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.8, delay }}
 			mb={6}
@@ -20,4 +20,4 @@ const Selection = ({ children, delay = 0}) => {
 	);
 }
 
-export default Selection;
+export default Section;
