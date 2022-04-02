@@ -11,7 +11,6 @@ import {
 import Section from '../components/layouts/selection'
 import Paragraph from '../components/layouts/paragraph'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import imageProfile from '../public/images/perfil.png'
 import { BioSelection, BioYear } from '../components/layouts/bio'
 import Layout from '../components/layouts/article'
 
@@ -19,9 +18,14 @@ const Page = () => {
   return (
     <Layout>
       <Container>
-
-        <Box borderRadius={'lg'} bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6}>
-          Hello, world! </Box>
+        <Box 
+					p={3}
+					mb={6}
+					borderRadius={'lg'}
+					bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+				>
+					Welcome my web page.
+				</Box>
         <Box display={{ md: 'flex' }}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">

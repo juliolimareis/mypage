@@ -20,7 +20,7 @@ const components = {
 				textDecorationThickness: 4,
 				marginTop: 3,
 				marginBottom: 4
-			}
+			},
 		}
 	},
 	Link: {

@@ -7,11 +7,11 @@ export const Title = ({ children }) => (
     <NextLink href="/works">
       <Link>works</Link>
     </NextLink>
-    <span>
+    <Box as='span'>
       &nbsp;
       <ChevronRightIcon />
       &nbsp;
-    </span>
+    </Box>
     <Heading
       display='inline-block'
       as="h3"
