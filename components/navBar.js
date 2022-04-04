@@ -36,12 +36,12 @@ const LinkItem = ({ href, path, children }) => {
 const NavBar = props => {
 	const { path } = props
 	return (
-		<Box 
+		<Box
 			position="fixed"
 			as="nav"
 			w="100%"
 			bg={useColorModeValue('#ffffff40', '#20202380')}
-			style={{backdropFilter:'blur(10px'}}
+			style={{ backdropFilter: 'blur(10px' }}
 			zIndex={1}
 			{...props}
 		>
@@ -52,14 +52,14 @@ const NavBar = props => {
 				wrap="wrap"
 				align="center"
 				justify="space-between"
-		 	>
+			>
 				<Flex align="center" mr={5}>
 					<Heading as="h1" size="lg" letterSpacing={'tighter'}>
-						<Logo/>
+						<Logo />
 					</Heading>
 				</Flex>
-				
-				<Stack 
+
+				<Stack
 					direction={{ base: 'column', md: 'row' }}
 					display={{ base: 'none', md: 'flex' }}
 					width={{ base: 'full', md: 'auto' }}
@@ -73,21 +73,27 @@ const NavBar = props => {
 					<LinkItem href="/works" path={path}>
 						Works
 					</LinkItem>
+					<LinkItem href="/front-end" path={path}>
+						Front-End
+					</LinkItem>
+					<LinkItem href="/back-end" path={path}>
+						Back-End
+					</LinkItem>
 					<LinkItem href="/posts" path={path}>
 						Posts
 					</LinkItem>
 					<LinkItem href="https://www.linkedin.com/in/julio-cesar-lima-reis-a8246215b/" path={path}>
 						LinkedIn
 					</LinkItem>
-				</Stack>	
+				</Stack>
 
 				<Box flex={1} align="right">
 					<ThemeToggleButton />
-					<Box ml={2} display={{ base: 'inline-block', md: 'none'}}>
+					<Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
 						<Menu>
-							<MenuButton 
+							<MenuButton
 								as={IconButton}
-								icon={<HamburgerIcon/>}
+								icon={<HamburgerIcon />}
 								variant="outline"
 								aria-label="Options"
 							/>
@@ -99,6 +105,12 @@ const NavBar = props => {
 								<NextLink href="/works" passHref>
 									<MenuItem>Works</MenuItem>
 								</NextLink>
+								<NextLink href="/front-end" passHref>
+									<MenuItem>Front-End</MenuItem>
+								</NextLink>
+								<NextLink href="/back-end" passHref>
+									<MenuItem>Back-End</MenuItem>
+								</NextLink>
 								<NextLink href="/posts" passHref>
 									<MenuItem>Posts</MenuItem>
 								</NextLink>
@@ -109,10 +121,10 @@ const NavBar = props => {
 						</Menu>
 					</Box>
 				</Box>
-								
+
 			</Container>
 		</Box>
 	)
-} 
+}
 
 export default NavBar

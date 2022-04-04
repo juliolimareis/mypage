@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import Layout from '../../components/layouts/article'
 import { Title, WorkImage, Meta } from '../../components/works'
