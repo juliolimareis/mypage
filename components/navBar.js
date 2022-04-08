@@ -15,11 +15,13 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import ThemeToggleButton from './theme-toggle-button'
+import { ThemeToggleButton, FlagToggleButton} from './theme-toggle-button'
+import { useTranslation } from 'react-i18next'
 
 const LinkItem = ({ href, path, children }) => {
 	const active = path === href
 	const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+
 	return (
 		<NextLink href={href}>
 			<Link
@@ -34,6 +36,7 @@ const LinkItem = ({ href, path, children }) => {
 }
 
 const NavBar = props => {
+	const { t } = useTranslation()
 	const { path } = props
 	return (
 		<Box
@@ -68,10 +71,10 @@ const NavBar = props => {
 					mt={{ base: 4, md: 0 }}
 				>
 					<LinkItem href="/about" path={path}>
-						About
+						{t('Sobre')}
 					</LinkItem>
 					<LinkItem href="/works" path={path}>
-						Works
+						{t('Trabalhos')}
 					</LinkItem>
 					<LinkItem href="/front-end" path={path}>
 						Front-End
@@ -88,6 +91,7 @@ const NavBar = props => {
 				</Stack>
 
 				<Box flex={1} align="right">
+					<FlagToggleButton />
 					<ThemeToggleButton />
 					<Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
 						<Menu>
@@ -100,10 +104,10 @@ const NavBar = props => {
 
 							<MenuList>
 								<NextLink href="/about" passHref>
-									<MenuItem>About</MenuItem>
+									<MenuItem>{t('Sobre')}</MenuItem>
 								</NextLink>
 								<NextLink href="/works" passHref>
-									<MenuItem>Works</MenuItem>
+									<MenuItem>{t('Trabalhos')}</MenuItem>
 								</NextLink>
 								<NextLink href="/front-end" passHref>
 									<MenuItem>Front-End</MenuItem>

@@ -8,13 +8,25 @@ import {
   Link,
   Button,
 } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 import Layout from '../components/layouts/article'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/layouts/selection'
 import { BioSelection, BioYear } from '../components/layouts/bio'
 import { Paragraph, ParagraphInto } from '../components/layouts/paragraph'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-const Page = () => {
+export const getStaticProps = async ({ locale }) => {
+	return {
+		props:{
+			...(await serverSideTranslations(locale, ['common'])),
+		}
+	}
+}
+
+const Page = (props) => {
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <Container>
@@ -24,21 +36,24 @@ const Page = () => {
           borderRadius={'lg'}
           bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         >
-          Welcome my web page.
+          {t('Bem vindo a minha página')}
+
         </Box>
         <Box display={{ md: 'flex' }}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
               Júlio César Lima Reis
             </Heading>
-            <p>Dev (Full Stack, Analyst, Developer)</p>
+            <p>{t('Dev (Full Stack, Analyst, Developer)')}</p>
           </Box>
 
           <Box
             flexShrink={0}
             mt={{ base: 4, md: 0 }}
             ml={{ md: 6 }}
-            align="center" > <Image
+            align="center"
+					> 
+						<Image
               borderColor="whiteAlpha.800"
               borderWidth={2}
               borders="solid"
@@ -53,14 +68,12 @@ const Page = () => {
 
         <Section delay={0.1}>
           <Heading as="h3" variant="selection-title">
-            Works
+            {t('Works')}
           </Heading>
 
           <Paragraph>
             <p>
-              Desenvolvedor full stack graduado em Análise e desenvolvimento
-              de Sistemas pelo Instituto Federal do
-              Espírito Santo(2017).
+              {t('Desenvolvedor full stack graduado em Análise e desenvolvimento de Sistemas pelo Instituto Federal do Espírito Santo - 2017.')}
             </p>
 
             <br />
@@ -70,20 +83,32 @@ const Page = () => {
 
               Comecei desenvolvendo sistemas nos projetos da faculdade que
               renderam boas experiências como desenvolvedor.
-              Meu primeiro trabalho profissional foi no Instituto Nacional da Mata
+              Meu primeiro trabalho profissional foi no
+              <Link
+                isExternal
+                href='https://www.gov.br/inma/pt-br'
+              >
+                &nbsp;Instituto Nacional da Mata&nbsp;
+              </Link>
               Atlântica como desenvolvedor onde durou um ano,
               em seguida comecei a jornada na empresa de gestão do cuidado
               <Link isExternal href='https://healthmap.com.br/'> Healthmap</Link> como analista
-              desenvolvedor na qual rendeu dois anos. Logo em seguida tive uma rápuda passagem
+              desenvolvedor na qual rendeu dois anos. A seguir uma rápida passagem
               na empresa
               <Link
-                isExternal href='https://www.linkedin.com/company/dixhealth/?originalSubdomain=br'>DixHealth</Link>.
+                isExternal href='https://www.linkedin.com/company/dixhealth/?originalSubdomain=br'>&nbsp;DixHealth</Link>.
 
-              Iniciei o trabalho na <Link isExternal href='https://www.linkedin.com/company/csiway/'>CSI</Link>
-              que derou oito meses.
+              Iniciei o trabalho na <Link isExternal href='https://www.linkedin.com/company/csiway/'>&nbsp;CSI&nbsp;</Link>
+              que durou oito meses.
 
-              Hoje trabalho na <Link isExternal href='https://www.linkedin.com/search/results/all/?keywords=dr.%20tis%20-%20plataforma%20de%20telemedicina%20e%20pacs&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=e6727da5-ee6b-41ad-9b40-d936f5c17335&sid=Yn%3A'> Dr.Tis</Link>
-              empresa focada em PACS e telemedicina.
+              Hoje trabalho na
+              <Link
+                isExternal
+                href='https://www.linkedin.com/search/results/all/?keywords=dr.%20tis%20-%20plataforma%20de%20telemedicina%20e%20pacs&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=e6727da5-ee6b-41ad-9b40-d936f5c17335&sid=Yn%3A'
+              >
+                &nbsp;Dr.Tis&nbsp;
+              </Link>
+              como desenvolvedor full steck.
             </p>
           </Paragraph>
 
@@ -127,7 +152,7 @@ const Page = () => {
           </BioSelection>
           <BioSelection>
             <BioYear>2022 to present</BioYear>
-            Dr.Tis Brasil.
+            Dr.Tis, Brasil.
           </BioSelection>
         </Section>
 
