@@ -5,27 +5,19 @@ import {
   Heading,
   Image,
   useColorModeValue,
-  Link,
+  a,
   Button,
 } from '@chakra-ui/react'
-import { useTranslation } from 'react-i18next'
+import useLocale from '../hooks/useLocale'
 import Layout from '../components/layouts/article'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/layouts/selection'
+import { Paragraph } from '../components/layouts/paragraph'
 import { BioSelection, BioYear } from '../components/layouts/bio'
-import { Paragraph, ParagraphInto } from '../components/layouts/paragraph'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import parse from 'html-react-parser'
 
-export const getStaticProps = async ({ locale }) => {
-	return {
-		props:{
-			...(await serverSideTranslations(locale, ['common'])),
-		}
-	}
-}
-
-const Page = (props) => {
-  const { t } = useTranslation()
+const Page = () => {
+  const { t } = useLocale()
 
   return (
     <Layout>
@@ -36,15 +28,14 @@ const Page = (props) => {
           borderRadius={'lg'}
           bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         >
-          {t('Bem vindo a minha página')}
-
+          {t.welcome}
         </Box>
         <Box display={{ md: 'flex' }}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
               Júlio César Lima Reis
             </Heading>
-            <p>{t('Dev (Full Stack, Analyst, Developer)')}</p>
+            <Box as='p'>{t.dev}</Box>
           </Box>
 
           <Box
@@ -52,8 +43,8 @@ const Page = (props) => {
             mt={{ base: 4, md: 0 }}
             ml={{ md: 6 }}
             align="center"
-					> 
-						<Image
+          >
+            <Image
               borderColor="whiteAlpha.800"
               borderWidth={2}
               borders="solid"
@@ -68,54 +59,25 @@ const Page = (props) => {
 
         <Section delay={0.1}>
           <Heading as="h3" variant="selection-title">
-            {t('Works')}
+            {t.presentation}
           </Heading>
 
           <Paragraph>
-            <p>
-              {t('Desenvolvedor full stack graduado em Análise e desenvolvimento de Sistemas pelo Instituto Federal do Espírito Santo - 2017.')}
-            </p>
+            <Box as='p'>
+              {t.graduated}
+            </Box>
 
             <br />
 
-            <p>
-              {/* Atualmente moro em Vitória - ES. */}
-
-              Comecei desenvolvendo sistemas nos projetos da faculdade que
-              renderam boas experiências como desenvolvedor.
-              Meu primeiro trabalho profissional foi no
-              <Link
-                isExternal
-                href='https://www.gov.br/inma/pt-br'
-              >
-                &nbsp;Instituto Nacional da Mata&nbsp;
-              </Link>
-              Atlântica como desenvolvedor onde durou um ano,
-              em seguida comecei a jornada na empresa de gestão do cuidado
-              <Link isExternal href='https://healthmap.com.br/'> Healthmap</Link> como analista
-              desenvolvedor na qual rendeu dois anos. A seguir uma rápida passagem
-              na empresa
-              <Link
-                isExternal href='https://www.linkedin.com/company/dixhealth/?originalSubdomain=br'>&nbsp;DixHealth</Link>.
-
-              Iniciei o trabalho na <Link isExternal href='https://www.linkedin.com/company/csiway/'>&nbsp;CSI&nbsp;</Link>
-              que durou oito meses.
-
-              Hoje trabalho na
-              <Link
-                isExternal
-                href='https://www.linkedin.com/search/results/all/?keywords=dr.%20tis%20-%20plataforma%20de%20telemedicina%20e%20pacs&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=e6727da5-ee6b-41ad-9b40-d936f5c17335&sid=Yn%3A'
-              >
-                &nbsp;Dr.Tis&nbsp;
-              </Link>
-              como desenvolvedor full steck.
-            </p>
+            <Box as='p'>
+              {t.presentationDesc}
+            </Box>
           </Paragraph>
 
           <Box align="center" mt={4}>
             <NextLink href="/works">
               <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-                My portfolio
+                {t.myPortfolio}
               </Button>
             </NextLink>
           </Box>
@@ -128,31 +90,31 @@ const Page = (props) => {
           </Heading>
           <BioSelection>
             <BioYear>1990</BioYear>
-            Born in Pedro Canário, Brazil.
+            {t.bornIn}
           </BioSelection>
           <BioSelection>
             <BioYear>2017</BioYear>
-            Graduated in Systems Analysis and Development - Federal Institute of Espírito Santo, Brazil.
+            {t.graduation}
           </BioSelection>
           <BioSelection>
             <BioYear>2018</BioYear>
-            Worked at National Institute of the Atlantic Forest, Brazil.
+            {t.work1}
           </BioSelection>
           <BioSelection>
             <BioYear>2019</BioYear>
-            Worked at Healthmap, Brazil.
+            {t.work2}
           </BioSelection>
           <BioSelection>
             <BioYear>2021</BioYear>
-            Worked at DixHealth, Brazil.
+            {t.work3}
           </BioSelection>
           <BioSelection>
             <BioYear>2021</BioYear>
-            Worked at CSI, Brazil.
+            {t.work4}
           </BioSelection>
           <BioSelection>
             <BioYear>2022 to present</BioYear>
-            Dr.Tis, Brasil.
+            {t.work5}
           </BioSelection>
         </Section>
 

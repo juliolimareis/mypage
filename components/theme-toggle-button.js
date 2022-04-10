@@ -6,9 +6,9 @@ import {
 	useColorMode,
 	useColorModeValue,
 } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
+import useLocale from "../hooks/useLocale";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
 
 export const ThemeToggleButton = () => {
 	const { toggleColorMode } = useColorMode();
@@ -34,44 +34,41 @@ export const ThemeToggleButton = () => {
 	)
 }
 
-export const FlagToggleButton = ({ props }) => {
-	const { t, i18n } = useTranslation()
-	const [language, setLanguage] = useState(props?.locale ?? 'en')
-	// const [nextLanguage, setNextLanguage] = useState('pt-BR')
+export const FlagToggleButton = () => {
+	const router = useRouter()
+	const { t, locale } = useLocale()
 
-	const changeLanguage = () => {
-		if (language == 'en'){
-			i18n.changeLanguage(language)
-			setLanguage('pt-BR')
-		}else{
-			i18n.changeLanguage(language)
-			setLanguage('en')
-		}
+	const changeLanguage = (lang) => {
+		const path = lang + router.pathname
+    router.replace(path, path, {locale:lang})
 	}
 
 	return (
-		<AnimatePresence exitBeforeEnter initial={false}>
-			<motion.div style={{ display: "inline-block" }}
-				key={language}
-				initial={{ y: -20, opacity: 0 }}
-				animate={{ y: 0, opacity: 1 }}
-				exit={{ y: 20, opacity: 0 }}
-				transition={{ duration: 0.2 }}
-			>
-				<IconButton
-					m={2}
-					title={t('Mudar idioma da página')}
-					aria-label="language"
-					icon={
-						language == 'en' ? 
-							<Flag name='great-britain'/>
-						: 
-							<Flag name='brasil'/>
-					}
-					onClick={changeLanguage}
-				/>
-			</motion.div>
-		</AnimatePresence>
+		<>
+			{
+				locale == 'en' ?
+					(
+						<IconButton
+							m={2}
+							title={t.changeLanguage}
+							aria-label="language"
+							icon={<Flag name='brasil'/>}
+							onClick={() => changeLanguage('pt')}
+						/>
+					)
+				:
+					(
+						<IconButton
+							m={2}
+							name='en'
+							title={t.changeLanguage}
+							aria-label="language"
+							icon={<Flag name='great-britain'/>}
+							onClick={() => changeLanguage('en')}
+						/>
+					)
+			}
+		</>
 	)
 }
 

@@ -1,23 +1,17 @@
-import NextLink from 'next/link'
 import {
-	Container,
-	Box,
 	Heading,
-	Image,
-	useColorModeValue,
-	Link,
-	Button,
-	Badge
+	Container,
 } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
-import { ChevronRightIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import Section from '../components/layouts/selection'
-import Experience from '../components/layouts/experience'
-import { BioSelection, BioYear } from '../components/layouts/bio'
-import { Paragraph, ParagraphInto } from '../components/layouts/paragraph'
 import ArrowDesc from '../components/layouts/arrowDesc'
+import Experience from '../components/layouts/experience'
+import { Paragraph, ParagraphInto } from '../components/layouts/paragraph'
+import useLocale from '../hooks/useLocale'
 
 const Technologies = () => {
+	const { t } = useLocale()
+
 	return (
 		<Layout>
 			<Container>

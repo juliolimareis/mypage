@@ -14,46 +14,65 @@ import {
 	IconButton,
 	useColorModeValue,
 } from '@chakra-ui/react'
+import useLocale from '../hooks/useLocale'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import { ThemeToggleButton, FlagToggleButton} from './theme-toggle-button'
-import { useTranslation } from 'react-i18next'
+import { ThemeToggleButton, FlagToggleButton } from './theme-toggle-button'
 
-const LinkItem = ({ href, path, children }) => {
+const LinkItem = ({ href, path, children, isExternal }) => {
 	const active = path === href
 	const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
 
 	return (
-		<NextLink href={href}>
-			<Link
-				p={2}
-				bg={active ? 'glassTeal' : undefined}
-				color={active ? '#202023' : inactiveColor}
-			>
-				{children}
-			</Link>
-		</NextLink>
+		<>
+			{ isExternal ? 
+				(
+					<Link
+						p={2}
+						isExternal
+						bg={active ? 'glassTeal' : undefined}
+						color={active ? '#202023' : inactiveColor}
+					>
+						{children}
+					</Link>
+				)
+			:
+				(
+					<NextLink href={href}>
+						<Link
+							p={2}
+							bg={active ? 'glassTeal' : undefined}
+							color={active ? '#202023' : inactiveColor}
+							isExternal={isExternal}
+						>
+							{children}
+						</Link>
+					</NextLink>
+				)
+			}
+		</>
 	)
 }
 
 const NavBar = props => {
-	const { t } = useTranslation()
+	const { t } = useLocale()
 	const { path } = props
+	
 	return (
 		<Box
-			position="fixed"
 			as="nav"
 			w="100%"
-			bg={useColorModeValue('#ffffff40', '#20202380')}
-			style={{ backdropFilter: 'blur(10px' }}
 			zIndex={1}
+			position="fixed"
+			style={{ backdropFilter: 'blur(10px' }}
+			bg={useColorModeValue('#ffffff40', '#20202380')}
 			{...props}
 		>
 			<Container
-				display="flex"
 				p={2}
-				maxW="container.md"
 				wrap="wrap"
 				align="center"
+				display="flex"
+				maxW="container.md"
 				justify="space-between"
 			>
 				<Flex align="center" mr={5}>
@@ -63,18 +82,18 @@ const NavBar = props => {
 				</Flex>
 
 				<Stack
-					direction={{ base: 'column', md: 'row' }}
-					display={{ base: 'none', md: 'flex' }}
-					width={{ base: 'full', md: 'auto' }}
-					align="center"
 					flexGrow={1}
+					align="center"
 					mt={{ base: 4, md: 0 }}
+					width={{ base: 'full', md: 'auto' }}
+					display={{ base: 'none', md: 'flex' }}
+					direction={{ base: 'column', md: 'row' }}
 				>
 					<LinkItem href="/about" path={path}>
-						{t('Sobre')}
+						{t.about}
 					</LinkItem>
 					<LinkItem href="/works" path={path}>
-						{t('Trabalhos')}
+						{t.works}
 					</LinkItem>
 					<LinkItem href="/front-end" path={path}>
 						Front-End
@@ -85,9 +104,9 @@ const NavBar = props => {
 					<LinkItem href="/posts" path={path}>
 						Posts
 					</LinkItem>
-					<LinkItem href="https://www.linkedin.com/in/julio-cesar-lima-reis-a8246215b/" path={path}>
+					<Link isExternal href="https://www.linkedin.com/in/julio-cesar-lima-reis-a8246215b/">
 						LinkedIn
-					</LinkItem>
+					</Link>
 				</Stack>
 
 				<Box flex={1} align="right">
@@ -97,17 +116,16 @@ const NavBar = props => {
 						<Menu>
 							<MenuButton
 								as={IconButton}
-								icon={<HamburgerIcon />}
 								variant="outline"
 								aria-label="Options"
+								icon={<HamburgerIcon />}
 							/>
-
 							<MenuList>
 								<NextLink href="/about" passHref>
-									<MenuItem>{t('Sobre')}</MenuItem>
+									<MenuItem>{t.about}</MenuItem>
 								</NextLink>
 								<NextLink href="/works" passHref>
-									<MenuItem>{t('Trabalhos')}</MenuItem>
+									<MenuItem>{t.works}</MenuItem>
 								</NextLink>
 								<NextLink href="/front-end" passHref>
 									<MenuItem>Front-End</MenuItem>
@@ -118,9 +136,9 @@ const NavBar = props => {
 								<NextLink href="/posts" passHref>
 									<MenuItem>Posts</MenuItem>
 								</NextLink>
-								<NextLink href="https://www.linkedin.com/in/julio-cesar-lima-reis-a8246215b/" passHref>
+								<Link isExternal href="https://www.linkedin.com/in/julio-cesar-lima-reis-a8246215b/">
 									<MenuItem>LinkedIn</MenuItem>
-								</NextLink>
+								</Link>
 							</MenuList>
 						</Menu>
 					</Box>
