@@ -2,12 +2,12 @@ import {
 	Heading,
 	Container,
 } from '@chakra-ui/react'
+import useLocale from '../hooks/useLocale'
 import Layout from '../components/layouts/article'
 import Section from '../components/layouts/selection'
 import ArrowDesc from '../components/layouts/arrowDesc'
 import Experience from '../components/layouts/experience'
 import { Paragraph, ParagraphInto } from '../components/layouts/paragraph'
-import useLocale from '../hooks/useLocale'
 
 const Technologies = () => {
 	const { t } = useLocale()
@@ -24,16 +24,17 @@ const Technologies = () => {
 					<Paragraph>
 						<Experience name='Flutter' years='2018' level={5} color='#54c4f8'>
 							<ParagraphInto>
-								<ArrowDesc> Orientação a objetos voltada a componentes reativos</ArrowDesc>
-								<ArrowDesc> Metodologia e implementação GetX</ArrowDesc>
-								<ArrowDesc> Integração com Android nativo</ArrowDesc>
-								<ArrowDesc> Gerenciamento de tasks em background</ArrowDesc>
-								<ArrowDesc> build Android/iOS</ArrowDesc>
-								<ArrowDesc> Publicação Android/IOS</ArrowDesc>
-								<ArrowDesc> Upload de arquivos</ArrowDesc>
-								<ArrowDesc> Integração com WebSocket</ArrowDesc>
-								<ArrowDesc> Integração com API</ArrowDesc>
-								<ArrowDesc> Implementação de temas</ArrowDesc>
+								<ArrowDesc>{t.fFlutter1}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter1}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter2}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter3}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter4}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter5}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter6}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter7}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter8}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter9}</ArrowDesc>
+								<ArrowDesc>{t.fFlutter10}</ArrowDesc>
 							</ParagraphInto>
 						</Experience>
 					</Paragraph>
@@ -41,19 +42,20 @@ const Technologies = () => {
 					<Paragraph>
 						<Experience name='Vue' years='2018' level={5} color='#3fb27f'>
 							<ParagraphInto>
-								<ArrowDesc> Criação de componentes dinâmicos</ArrowDesc>
-								<ArrowDesc> TypeScript</ArrowDesc>
-								<ArrowDesc> VueX</ArrowDesc>
-								<ArrowDesc> Buefy</ArrowDesc>
-								<ArrowDesc> Integração com API</ArrowDesc>
-								<ArrowDesc> Deploy Docker</ArrowDesc>
-								<ArrowDesc> Criação de sites</ArrowDesc>
-								<ArrowDesc> Upload de imagens</ArrowDesc>
-								<ArrowDesc> Criação de templates</ArrowDesc>
-								<ArrowDesc> Slots</ArrowDesc>
-								<ArrowDesc> Validação de formulários</ArrowDesc>
-								<ArrowDesc> Upload de arquivos</ArrowDesc>
-								<ArrowDesc> Integração com Leaflet</ArrowDesc>
+								<ArrowDesc>{t.fVue1}</ArrowDesc>
+								<ArrowDesc>{t.fVue2}</ArrowDesc>
+								<ArrowDesc>{t.fVue3}</ArrowDesc>
+								<ArrowDesc>{t.fVue4}</ArrowDesc>
+								<ArrowDesc>{t.fVue5}</ArrowDesc>
+								<ArrowDesc>{t.fVue6}</ArrowDesc>
+								<ArrowDesc>{t.fVue7}</ArrowDesc>
+								<ArrowDesc>{t.fVue8}</ArrowDesc>
+								<ArrowDesc>{t.fVue9}</ArrowDesc>
+								<ArrowDesc>{t.fVue10}</ArrowDesc>
+								<ArrowDesc>{t.fVue11}</ArrowDesc>
+								<ArrowDesc>{t.fVue12}</ArrowDesc>
+								<ArrowDesc>{t.fVue13}</ArrowDesc>
+								<ArrowDesc>{t.fVue14}</ArrowDesc>
 							</ParagraphInto>
 						</Experience>
 					</Paragraph>
@@ -61,16 +63,16 @@ const Technologies = () => {
 					<Paragraph>
 						<Experience name='React' years='2021' level={4} color='#5ed3f3'>
 							<ParagraphInto>
-								<ArrowDesc> Criação de componentes dinâmicos</ArrowDesc>
-								<ArrowDesc> JSX</ArrowDesc>
-								<ArrowDesc> Criação de Hooks</ArrowDesc>
-								<ArrowDesc> Material-UI</ArrowDesc>
-								<ArrowDesc> Integração com API</ArrowDesc>
-								<ArrowDesc> Deploy Docker</ArrowDesc>
-								<ArrowDesc> Criação de sites</ArrowDesc>
-								<ArrowDesc> Criação de templates</ArrowDesc>
-								<ArrowDesc> Validação de formulários</ArrowDesc>
-								<ArrowDesc> Upload de arquivos</ArrowDesc>
+								<ArrowDesc>{t.fReact1}</ArrowDesc>
+								<ArrowDesc>{t.fReact2}</ArrowDesc>
+								<ArrowDesc>{t.fReact3}</ArrowDesc>
+								<ArrowDesc>{t.fReact4}</ArrowDesc>
+								<ArrowDesc>{t.fReact5}</ArrowDesc>
+								<ArrowDesc>{t.fReact6}</ArrowDesc>
+								<ArrowDesc>{t.fReact7}</ArrowDesc>
+								<ArrowDesc>{t.fReact8}</ArrowDesc>
+								<ArrowDesc>{t.fReact9}</ArrowDesc>
+								<ArrowDesc>{t.fReact10}</ArrowDesc>
 							</ParagraphInto>
 						</Experience>
 					</Paragraph>
@@ -78,22 +80,19 @@ const Technologies = () => {
 					<Paragraph>
 						<Experience name='Angular' years='2020' level={4} color='#bd002e'>
 							<ParagraphInto>
-								<ArrowDesc> Criação de componentes dinâmicos</ArrowDesc>
-								<ArrowDesc> Módulos</ArrowDesc>
-								<ArrowDesc> Criação de Hooks</ArrowDesc>
-								<ArrowDesc> Material-UI</ArrowDesc>
-								<ArrowDesc> Integração com API</ArrowDesc>
-								<ArrowDesc> Deploy Docker</ArrowDesc>
-								<ArrowDesc> Criação de sites</ArrowDesc>
-								<ArrowDesc> Criação de templates</ArrowDesc>
-								<ArrowDesc> Validação de formulários</ArrowDesc>
-								<ArrowDesc> Upload de arquivos</ArrowDesc>
+								<ArrowDesc>{t.fAngular1}</ArrowDesc>
+								<ArrowDesc>{t.fAngular2}</ArrowDesc>
+								<ArrowDesc>{t.fAngular3}</ArrowDesc>
+								<ArrowDesc>{t.fAngular4}</ArrowDesc>
+								<ArrowDesc>{t.fAngular5}</ArrowDesc>
+								<ArrowDesc>{t.fAngular6}</ArrowDesc>
+								<ArrowDesc>{t.fAngular7}</ArrowDesc>
+								<ArrowDesc>{t.fAngular8}</ArrowDesc>
+								<ArrowDesc>{t.fAngular9}</ArrowDesc>
+								<ArrowDesc>{t.fAngular10}</ArrowDesc>
 							</ParagraphInto>
 						</Experience>
 					</Paragraph>
-
-
-
 				</Section>
 
 			</Container>

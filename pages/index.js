@@ -5,7 +5,6 @@ import {
   Heading,
   Image,
   useColorModeValue,
-  a,
   Button,
 } from '@chakra-ui/react'
 import useLocale from '../hooks/useLocale'
@@ -14,7 +13,6 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '../components/layouts/selection'
 import { Paragraph } from '../components/layouts/paragraph'
 import { BioSelection, BioYear } from '../components/layouts/bio'
-import parse from 'html-react-parser'
 
 const Page = () => {
   const { t } = useLocale()
