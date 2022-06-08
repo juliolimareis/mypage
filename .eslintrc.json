@@ -2,10 +2,11 @@
 	"root": true,
   "extends": "next",
 	"rules": {
-		"no-unused-vets":[
+		"react-hooks/rules-of-hooks": "off",
+		"no-unused-vars":[
 			"error",
 			{
-				"argsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_/u",
 				"varsIgnorePattern": "^_"
 			}
 		]

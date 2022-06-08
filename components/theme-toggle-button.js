@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import {
-	Box,
 	Image,
 	IconButton,
 	useColorMode,

@@ -3,9 +3,6 @@ import {
   Container,
   Box,
   Heading,
-  Image,
-  useColorModeValue,
-  Link,
   Button,
 } from '@chakra-ui/react'
 import parser from 'html-react-parser'

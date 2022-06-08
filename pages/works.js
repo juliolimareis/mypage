@@ -2,8 +2,7 @@ import works from '../database/works'
 import Layout from '../components/layouts/article'
 import Section from '../components/layouts/selection'
 import { WorkGridItem } from '../components/grid-item'
-import thumbApiPhotoSlide from "../public/images/works/api-photo-slide.png"
-import { Container, Box, Flex, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid, } from '@chakra-ui/react'
 
 const Works = () => {
   return (

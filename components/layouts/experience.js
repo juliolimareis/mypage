@@ -22,8 +22,8 @@ const Experience = ({ name, level, years, color, noExp, children }) => {
 
 				<Box as="span">
 					{
-						[...Array(level)].map((star) => (
-							<Box as='span'>
+						[...Array(level)].map((star, i) => (
+							<Box key={i} as='span'>
 								&nbsp;
 								<StarIcon
 									mb={2}
