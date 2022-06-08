@@ -1,14 +1,6 @@
-import { Global } from "@emotion/react";
-
-const Fonts = () => {
-	return (
-		<Global
-			styles={`
-				@import url("http://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:wght@300;700&display=swap");
-				@import url("href="https://unpkg.com/@icon/ionicons/ionicons.css");
-			`}
-		/>
-	);
-}
-
-export default Fonts;
+const Fonts = () => (
+  <style jsx global>{`
+    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;700&display=swap');
+  `}</style>
+)
+export default Fonts

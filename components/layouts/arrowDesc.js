@@ -1,6 +1,6 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 const ArrowDesc = ({ children }) => (
-	<p><ArrowForwardIcon /> {children}</p>
+	<div><ArrowForwardIcon /> {children}</div>
 )
 export default ArrowDesc
