@@ -4,4 +4,5 @@ module.exports = {
     locales: ['en', 'pt'],
     defaultLocale: 'en',
   },
+  distDir: 'dist',
 }
